@@ -1,23 +1,16 @@
-import logo from './logo.svg';
+import Toggle from './Toggle';
+import { useState } from "react";
+import clsx from "clsx";
 import './App.css';
 
 function App() {
+
+  const [isOn, setIsOn] = useState(true);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className={clsx(" h-screen flex justify-center items-center",isOn ? "bg-black":"bg-white")}>
+    
+        <Toggle enable={setIsOn} status={isOn} />
     </div>
   );
 }
